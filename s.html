@@ -1,4 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #btn{
+            background:#5fcf80;
+        }
+    </style>
+    <script>
+        function fun(){
+            var fname = document.getElementById('fname').value;
+            var lname = document.getElementById('lname').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
 
+            var nerror, error, perror;
 
+            var nreg = /^[a-zA-Z]*$/
+            if(!nreg.test(fname) || !nreg.test(lname)){
+                alert('Firstname and lastname must contain only alphabets');
+            }
+            var email =  /^([A-Za-z0-9_\-.+])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,})$/;
+            if(email.test(email)){
+                alert("Enter valid email id");
+            }
 
+            var pass = /^[0-9a-zA-Z]*$/
+            var leng = password.length;
+            if(leng < 8 || !pass.test(password)){
+                alert("password must contain only numbers and alphabets of length greater than 8");
+            }
 
+        }
+    </script>
+</head>
+<body>
+    <form>
+      <table>
+        <tr>
+          <td> firstname</td>
+          <td> lastname</td>
+        </tr>
+        <tr>
+          <td>
+          
+         
+            <input type="text" placeholder="firstname" id="fname" required></td>
+          <td> <input type="text" placeholder="lastname" id="lname" required></td><br><br>
+        </tr>
+        <tr>
+          <td> email</td>
+          <td> password</td>
+        </tr>
+        <tr>
+          
+        <td><input type="email" placeholder="email" id="email" required></td><br>
+          <td><input type="password" placeholder="password" id="password" required></td><br></td>
+        </tr>
+  <tr>
+          <td><p>You are agreeing to our <a href="">Terms and conditions</a></p><br>
+        <button type="submit" id="btn" onclick="fun()">signin</button>
+          </td>
+      </tr>
+  </table>
+</body>
+</html>
